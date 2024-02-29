@@ -1,0 +1,73 @@
+<div class="main-table">
+    <div class="table-height" style="overflow:auto">
+    
+        <table mat-table #table [dataSource]="dataSource" matSort class="example-container mat-elevation-z8">
+      
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+      
+          <!-- Position Column -->
+     <!-- Weight Column -->
+     <ng-container matColumnDef="invoiceNumber">
+        <th *matHeaderCellDef mat-sort-header class="order"> INVOICE_NO </th>
+        <td *matCellDef="let element"> {{element.invoiceNumber}} </td>
+      </ng-container>
+
+          <ng-container matColumnDef="doctext">
+            <th *matHeaderCellDef mat-sort-header>DOCTYPE </th>
+            <td *matCellDef="let element"> {{element.doctext}} </td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="company">
+            <th *matHeaderCellDef mat-sort-header> COMPANY </th>
+            <td *matCellDef="let element"> {{element.company}} </td>
+          </ng-container>
+    
+      
+     
+      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="invoicedate">
+            <th *matHeaderCellDef mat-sort-header>INVOICE_DT </th>
+            <td *matCellDef="let element"> {{element.invoicedate}} </td>
+          </ng-container>
+      
+       <ng-container matColumnDef="billamount">
+            <th *matHeaderCellDef mat-sort-header> BILL_AMT</th>
+            <td *matCellDef="let element"> {{element.billamount}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="cramount">
+            <th *matHeaderCellDef mat-sort-header> CR_AMT</th>
+            <td *matCellDef="let element"> {{element.cramount}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="netamount">
+            <th *matHeaderCellDef mat-sort-header class="order"> NETAMOUNT</th>
+            <td *matCellDef="let element"> {{element.netamount}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="days">
+            <th *matHeaderCellDef mat-sort-header> DAYS</th>
+            <td *matCellDef="let element"> {{element.days}} </td>
+          </ng-container>
+      
+          <!-- <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+        </table>
+    </div>
+
+          <mat-paginator #paginator
+                       [pageSize]="10"
+                       [pageSizeOptions]="[5, 10, 20]"
+                       [showFirstLastButtons]="true">
+        </mat-paginator>
+      
+    
+    </div>

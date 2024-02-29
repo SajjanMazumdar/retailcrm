@@ -1,0 +1,71 @@
+<div class="header-panel">
+    <div class="header-title">
+        <p class="desktop">Retail CRM </p> <p class="short-form">SSRC</p>
+    </div>
+    <div class="header-user">
+        <div class="header-maps">
+            <mat-icon> location_on</mat-icon>
+        </div>
+        <div class="hader-user-details" (click)="user_section = !user_section">
+            <mat-icon>person</mat-icon>
+            <!-- <mat-icon [ngClass]="user_section ? 'arrow_up' : 'arrow_down'">arrow_drop_down</mat-icon> -->
+            <!-- <mat-icon *ngIf="user_section">keyboard_arrow_up</mat-icon> -->
+        </div>
+    </div>
+</div>
+
+<!-- <div class="header-user-dropdown">
+
+    <div class="header-profile">
+        <h6>Profile</h6>
+        <mat-icon>person</mat-icon>
+    </div>   
+    <div class="header-profile">
+       <h6>Setting</h6>
+       <mat-icon>person</mat-icon>
+   </div> 
+   <div class="header-profile">
+       <h6>Help</h6>
+       <mat-icon>person</mat-icon>
+   </div> 
+   <div class="header-profile">
+       <h6>Logout</h6>
+       <mat-icon>person</mat-icon>
+   </div> 
+</div> -->
+
+<div class="dropdown mat-elevation-z1" *ngIf="user_section">
+    <div class="content">
+        <mat-nav-list>
+            <mat-list-item>
+                <a matLine>Profile</a>
+                <button mat-icon-button>
+                    <mat-icon>account_circle</mat-icon>
+                </button>
+            </mat-list-item>
+            <br>
+            <mat-list-item>
+                <a matLine>Settings</a>
+                <button mat-icon-button>
+                    <mat-icon>settings</mat-icon>
+                </button>
+            </mat-list-item>
+            <br>
+            <mat-list-item>
+                <a matLine>Help</a>
+                <button mat-icon-button>
+                    <mat-icon>help</mat-icon>
+                </button>
+            </mat-list-item>
+            <br>
+            <mat-divider></mat-divider>
+
+            <mat-list-item (click)="logOut()">
+                <a matLine>Logout</a>
+                <button mat-icon-button>
+                    <mat-icon>exit_to_app</mat-icon>
+                </button>
+            </mat-list-item>
+        </mat-nav-list>
+    </div>
+</div>

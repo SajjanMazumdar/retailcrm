@@ -1,0 +1,117 @@
+<!-- <div fxLayout="row" fxLayoutAlign="start center">
+  <button mat-raised-button color="primary" style="margin: 8px" (click)="newReport()">Create report
+  </button>
+  <button mat-raised-button color="primary" style="margin: 8px" (click)="editReport()">Edit report
+  </button>
+</div> -->
+
+<!-- <div class="account-details">
+  <div class="account-title">
+      <h3> <span>&nbsp; &nbsp; &nbsp;</span> Pivot / Report Builder / </h3>
+  </div>
+</div> -->
+
+
+<!-- <div class="select-save-report">
+  <div class="form-title">
+    <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Select Save Report</mat-label>
+        <mat-select>
+            <mat-option value="one">Central</mat-option>
+            <mat-option value="two">East</mat-option>
+            <mat-option value="three">North</mat-option>
+            <mat-option value="four">North-East</mat-option>
+            <mat-option value="five">South</mat-option>
+            <mat-option value="six">East</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+</div> -->
+
+<!-- <ul class="button-share">
+  <li><a href=""><mat-icon>share</mat-icon> Export</a></li>
+  <li><a href=""><mat-icon> screen_share</mat-icon> Share</a></li>
+  <li><a href=""><mat-icon>print</mat-icon> Print</a></li>
+</ul> -->
+
+
+<ul class="main-search">
+<li>
+  <div class="search-box">
+    <div class="account-form">
+        <div class="form-title">
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label>Report Type </mat-label>
+                <mat-select>
+                    <mat-option value="one">Central</mat-option>
+                    <mat-option value="two">East</mat-option>
+                    <mat-option value="three">North</mat-option>
+                    <mat-option value="four">North-East</mat-option>
+                    <mat-option value="five">South</mat-option>
+                    <mat-option value="six">East</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    
+        <div class="form-title">
+            <mat-form-field appearance="outline" class="example-full-width">
+                <mat-label>Period</mat-label>
+                <mat-select>
+                    <mat-option value="one">Central</mat-option>
+                    <mat-option value="two">East</mat-option>
+                    <mat-option value="three">North</mat-option>
+                    <mat-option value="four">North-East</mat-option>
+                    <mat-option value="five">South</mat-option>
+                    <mat-option value="six">East</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    
+        <div class="form-title multi-select">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Month</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+    
+  
+        <div class="form-title multi-select">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Year</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+    </div>
+    
+    </div>
+
+</li>
+<li>
+
+  <div class="share-print-export">
+  <a href=""><mat-icon>assignment_turned_in</mat-icon> Export</a>
+   <a href=""><mat-icon> screen_share</mat-icon> Share</a>
+   <a href=""><mat-icon>print</mat-icon> Print</a>
+  </div>
+
+</li>
+</ul>
+
+<div class="close-btn"><a href="javascript:void(0)" class="close-sortable"> Hide Filter</a></div>
+
+<div *ngIf="reportsCreated" fxLayout="row">
+  <div *ngFor="let report of reportsCreated">
+    <button mat-raised-button style="margin: 8px" color="accent" (click)="selectReport(report)">{{report.Name}}</button>
+  </div>
+</div>
+
+<app-pivot-table [config]="selectedConfig" [show]="mode" (newConfig)="reportConfig($event)"></app-pivot-table>
+
+<ul class="cen-btn">
+  <li><button mat-raised-button color="primary">Save as Template</button></li>
+</ul>

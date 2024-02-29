@@ -1,0 +1,70 @@
+<div class="side-menu-container">
+    <div class="side-menu-logo">
+        <img src="{{logo}}" alt="">
+    </div>
+    <div class="side-main-menu">
+        <ul class="side-main">
+
+            <li [ngClass]="menu_dashboard ? 'active' : ''" #tooltip="matTooltip" matTooltip="Dashboard" matTooltipPosition="right">
+                <span (click)="openDashboard()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M13 21V11h8v10h-8zM3 13V3h8v10H3zm6-2V5H5v6h4zM3 21v-6h8v6H3zm2-2h4v-2H5v2zm10 0h4v-6h-4v6zM13 3h8v6h-8V3zm2 2v2h4V5h-4z"
+                            fill="rgba(255,255,255,1)" />
+                    </svg>
+                    <!-- <div class="side-main-content">
+                        <h5>Dashboard</h5>
+                    </div> -->
+                </span>
+            </li>
+
+            <li [ngClass]="menu_account ? 'active' : ''" #tooltip="matTooltip" matTooltip="Account" matTooltipPosition="right">
+                <span (click)="openAccountSubMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M3.783 2.826L12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976zM5 4.604v9.185a4 4 0 0 0 1.781 3.328L12 20.597l5.219-3.48A4 4 0 0 0 19 13.79V4.604L12 3.05 5 4.604zM11 10V7h2v3h3v2h-3v3h-2v-3H8v-2h3z"
+                            fill="rgba(255,255,255,1)" />
+                    </svg>
+                    <!-- <div class="side-main-content">
+                        <h5>Account</h5>
+                    </div> -->
+                </span>
+            </li>
+ 
+            <li [ngClass]="menu_order ? 'active' : ''" #tooltip="matTooltip" matTooltip="Order" matTooltipPosition="right">
+                <span (click)="openOrdertSubMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M21 6.757l-2 2V4h-9v5H5v11h14v-2.757l2-2v5.765a.993.993 0 0 1-.993.992H3.993A1 1 0 0 1 3 20.993V8l6.003-6h10.995C20.55 2 21 2.455 21 2.992v3.765zm.778 2.05l1.414 1.415L15.414 18l-1.416-.002.002-1.412 7.778-7.778z"
+                            fill="rgba(255,255,255,1)" />
+                    </svg>
+                    <!-- <div class="side-main-content">
+                        <h5>Order</h5>
+                    </div> -->
+                </span>
+            </li>
+
+            <li [ngClass]="menu_report ? 'active' : ''" #tooltip="matTooltip" matTooltip="Report" matTooltipPosition="right">
+                <span (click)="openReportSubMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M19 22H5a3 3 0 0 1-3-3V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12h4v4a3 3 0 0 1-3 3zm-1-5v2a1 1 0 0 0 2 0v-2h-2zm-2 3V4H4v15a1 1 0 0 0 1 1h11zM6 7h8v2H6V7zm0 4h8v2H6v-2zm0 4h5v2H6v-2z"
+                            fill="rgba(255,255,255,1)" />
+                    </svg>
+                    <!-- <div class="side-main-content">
+                        <h5>Report</h5>
+                    </div> -->
+                </span>
+            </li>
+
+
+            
+
+
+        </ul>
+    </div>
+</div>

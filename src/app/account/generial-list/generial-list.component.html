@@ -1,0 +1,568 @@
+<div class="account-details">
+    <div class="account-title">
+        <!-- <h3> <span>&nbsp; &nbsp; &nbsp;</span> Account / Dealer /</h3> -->
+        <div class="crumbs">
+            <ul>
+                <li><a>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M3.783 2.826L12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976zM5 4.604v9.185a4 4 0 0 0 1.781 3.328L12 20.597l5.219-3.48A4 4 0 0 0 19 13.79V4.604L12 3.05 5 4.604zM11 10V7h2v3h3v2h-3v3h-2v-3H8v-2h3z"
+                                fill="rgba(0, 0, 0, .87)" />
+                        </svg>
+                    </a></li>
+                <li><a> General - List</a></li>
+                <!-- <li><a > Cart</a></li>
+                <li><a > Checkout</a></li> -->
+            </ul>
+        </div>
+        <!-- <div class="cancel-button">
+            <mat-icon>close</mat-icon>
+        </div> -->
+    </div>
+</div>
+
+
+<div class="table-header">
+    <div class="table-filter">
+        <a href="#" class="filter-tools"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19"
+                height="19">
+                <path fill="none" d="M0 0H24V24H0z" />
+                <path
+                    d="M6.929.515L21.07 14.657l-1.414 1.414-3.823-3.822L15 13.5V22H9v-8.5L4 6H3V4h4.585l-2.07-2.071L6.929.515zM9.585 6H6.404L11 12.894V20h2v-7.106l1.392-2.087L9.585 6zM21 4v2h-1l-1.915 2.872-1.442-1.443L17.596 6h-2.383l-2-2H21z"
+                    fill="rgba(244,67,54,1)" />
+            </svg></a>
+        <a class="add-icon" (click)="openDialog()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                width="18" height="18">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="rgba(103,58,183,1)" />
+            </svg></a>
+
+    </div>
+    <div class="table-search-export search-form">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <span matPrefix> </span>
+            <input matInput placeholder="Search" name="search" (keyup)="applyFilter($event)">
+            <button matSuffix mat-button>
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
+        <!-- <mat-icon>search</mat-icon>
+        <mat-form-field appearance="outline">
+            <mat-label></mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field> -->
+        <a href="#" class="export-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19"
+                height="19">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path d="M13 10h5l-6 6-6-6h5V3h2v7zm-9 9h16v-7h2v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-8h2v7z"
+                    fill="rgba(33,135,33,1)" />
+            </svg></a>
+    </div>
+</div>
+
+
+<div class="table-height" style="overflow:auto">
+
+    <table mat-table #table [dataSource]="dataSource" matSort cdkDropList cdkDropListOrientation="horizontal"
+        (cdkDropListDropped)="drop($event)" class="example-container mat-elevation-z8">
+        <!-- <table mat-table [dataSource]="dataSource" > -->
+        <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> No.
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element" style="width:200px"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> ID
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header class="distributor"> Distributor Name
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header class="distributor"> Dealer Name
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header class="distributor"> Contact Person
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test1">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header class="distributor"> SAP ID
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test1}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test2">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> Address
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test2}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test3">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> Pincode
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test3}} </td>
+        </ng-container>
+        <ng-container matColumnDef="test4">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header class="distributor"> GPS Address
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test4}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test5">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> Region
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test5}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test6">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> State
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test6}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test7">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> City
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test7}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="test8">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> Cluster
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test8}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test9">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> District
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <tr mat-cell *matCellDef="let element"> {{element.test9}} </tr>
+        </ng-container>
+
+        <ng-container matColumnDef="test10">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header class="distributor"> Mobile No.
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test10}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test11">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header class="distributor"> Dealer Type
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test11}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test12">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header class="distributor"> Account Subtype
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test12}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test13">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header class="distributor"> Conf. Img.
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test13}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test14">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> AGM/RSM
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test14}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test15">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> ASM
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test15}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test16">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> SO
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test16}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test17">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header> ME
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test17}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test18">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header class="distributor"> Next Followup Date
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test18}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test19">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header class="distributor"> Created By
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test19}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test20">
+            <th mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header class="distributor"> Created Date
+                <div class="filter-icon">
+                    <button mat-button [matMenuTriggerFor]="menu" #menuTrigger (click)="$event.stopPropagation();"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" d="M0 0H24V24H0z" />
+                            <path
+                                d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z"
+                                fill="rgb(255, 255, 255)" />
+                        </svg></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                    </mat-menu>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.test20}} </td>
+        </ng-container>
+
+
+
+        <ng-container matColumnDef="test25" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef class="sticky">
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M6.75 2.5A4.25 4.25 0 0 1 11 6.75V11H6.75a4.25 4.25 0 1 1 0-8.5zM9 9V6.75A2.25 2.25 0 1 0 6.75 9H9zm-2.25 4H11v4.25A4.25 4.25 0 1 1 6.75 13zm0 2A2.25 2.25 0 1 0 9 17.25V15H6.75zm10.5-12.5a4.25 4.25 0 1 1 0 8.5H13V6.75a4.25 4.25 0 0 1 4.25-4.25zm0 6.5A2.25 2.25 0 1 0 15 6.75V9h2.25zM13 13h4.25A4.25 4.25 0 1 1 13 17.25V13zm2 2v2.25A2.25 2.25 0 1 0 17.25 15H15z"
+                            fill="rgb(255, 255, 255)" />
+                    </svg>
+                </a>
+            </th>
+            <td mat-cell *matCellDef="let element" class="sticky"> <button mat-button [matMenuTriggerFor]="menu"
+                    #menuTrigger>
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                </mat-menu>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+</mat-paginator>
+<!-- </div> -->
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->
+
+
+<!-- <mat-dialog-content>
+        This is a dialog
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Okay</button>
+      </mat-dialog-actions> -->

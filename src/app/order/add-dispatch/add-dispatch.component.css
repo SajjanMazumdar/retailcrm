@@ -1,0 +1,30 @@
+.account-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2em;
+    
+  }
+
+  .main-table {
+    margin: 20px;
+}
+
+.headign-text h1 {
+    margin: 20px;
+    font-size: 20px;
+    border-bottom: solid 1px#bfbfbf;
+    margin-top: 0px;
+}
+
+
+.search-box {
+    margin: 20px;
+    background: #fff;
+    }
+    
+    ul.cen-btn {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+

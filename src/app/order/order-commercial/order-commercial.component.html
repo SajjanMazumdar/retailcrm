@@ -1,0 +1,300 @@
+<div class="account-details">
+    <div class="account-title">
+        <h3> Order / Order Approval Commercial / </h3>
+    </div>
+</div>
+
+<div class="advanced-search"> 
+<button (click)="showDiv.previous = !showDiv.previous;"> <mat-icon>search</mat-icon> Advanced Search</button>
+</div>
+
+<div class="search-box" *ngIf="showDiv.previous">
+
+<div class="account-form">
+
+    <div class="form-title">
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>State </mat-label>
+            <mat-select>
+                <mat-option value="one">Central</mat-option>
+                <mat-option value="two">East</mat-option>
+                <mat-option value="three">North</mat-option>
+                <mat-option value="four">North-East</mat-option>
+                <mat-option value="five">South</mat-option>
+                <mat-option value="six">East</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>District </mat-label>
+            <mat-select>
+                <mat-option value="one">Central</mat-option>
+                <mat-option value="two">East</mat-option>
+                <mat-option value="three">North</mat-option>
+                <mat-option value="four">North-East</mat-option>
+                <mat-option value="five">South</mat-option>
+                <mat-option value="six">East</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Distributor </mat-label>
+            <mat-select>
+                <mat-option value="one">Central</mat-option>
+                <mat-option value="two">East</mat-option>
+                <mat-option value="three">North</mat-option>
+                <mat-option value="four">North-East</mat-option>
+                <mat-option value="five">South</mat-option>
+                <mat-option value="six">East</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label> Dealer Name </mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Start Date</mat-label>
+            <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker01">
+            <mat-datepicker-toggle matSuffix [for]="picker01"></mat-datepicker-toggle>
+            <mat-datepicker #picker01></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>End Date</mat-label>
+            <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker02">
+            <mat-datepicker-toggle matSuffix [for]="picker02"></mat-datepicker-toggle>
+            <mat-datepicker #picker02></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+<div class="form-title">
+  <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>Pendings</mat-label>
+      <mat-select>
+          <mat-option value="one">Central</mat-option>
+          <mat-option value="two">East</mat-option>
+          <mat-option value="three">North</mat-option>
+          <mat-option value="four">North-East</mat-option>
+          <mat-option value="five">South</mat-option>
+          <mat-option value="six">East</mat-option>
+      </mat-select>
+  </mat-form-field>
+</div>
+
+
+</div>
+
+<ul class="cen-btn">
+    <li><button mat-raised-button color="primary">Search</button></li>
+    <!-- <li><button mat-raised-button color="primary">Exporat Excel</button></li> -->
+</ul>
+
+</div>
+
+<div class="main-table">
+  <div class="table-height" style="overflow:auto">
+  
+      <table mat-table #table [dataSource]="dataSource" matSort class="example-container mat-elevation-z8">
+    
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="order"> Order Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+  
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th *matHeaderCellDef mat-sort-header> Request Number </th>
+          <td *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+    
+
+        <ng-container matColumnDef="requestdate">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap">Request Date</th>
+          <td *matCellDef="let element"> {{element.requestdate}} </td>
+        </ng-container>
+
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap"> Order No </th>
+          <td *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+    
+     <ng-container matColumnDef="test">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap"> Order Date </th>
+          <td *matCellDef="let element"> {{element.test}} </td>
+        </ng-container>
+    
+         <ng-container matColumnDef="test1">
+          <th *matHeaderCellDef mat-sort-header class="distributor"> Distributor </th>
+          <td *matCellDef="let element"> {{element.test1}} </td>
+        </ng-container>
+         <ng-container matColumnDef="test2">
+          <th *matHeaderCellDef mat-sort-header class="distributor"> Dealer Name </th>
+          <td *matCellDef="let element"> {{element.test2}} </td>
+        </ng-container>
+     <ng-container matColumnDef="test3">
+          <th *matHeaderCellDef mat-sort-header class="order"> State </th>
+          <td *matCellDef="let element"> {{element.test3}} </td>
+        </ng-container>
+         <ng-container matColumnDef="test4">
+          <th *matHeaderCellDef mat-sort-header class="order"> District </th>
+          <td *matCellDef="let element"> {{element.test4}} </td>
+        </ng-container>
+         <ng-container matColumnDef="test5">
+          <th *matHeaderCellDef mat-sort-header> Sap id </th>
+          <td *matCellDef="let element"> {{element.test5}} </td>
+        </ng-container>
+         <ng-container matColumnDef="test6">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap100"> Requested Qty </th>
+          <td *matCellDef="let element"> {{element.test6}} </td>
+        </ng-container>
+         <ng-container matColumnDef="test7">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap100">Approved Qty </th>
+          <td *matCellDef="let element" > {{element.test7}} </td>
+        </ng-container>
+  
+         <ng-container matColumnDef="test8">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap100"> Total Despatch Qty </th>
+          <td *matCellDef="let element"> {{element.test8}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="test9">
+          <th *matHeaderCellDef mat-sort-header> Difference</th>
+          <td *matCellDef="let element"> {{element.test9}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="test10">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap"> Credit Limit</th>
+          <td *matCellDef="let element"> {{element.test10}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="test11">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap100">Total Outstanding</th>
+          <td *matCellDef="let element"> {{element.test11}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="test12">
+        <th *matHeaderCellDef mat-sort-header class="mid-gap">0-30 Days</th>
+          <td *matCellDef="let element"> {{element.test12}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="test13">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap">31 To 45 Days</th>
+          <td *matCellDef="let element"> {{element.test13}} </td>
+        </ng-container>
+  
+  
+        <ng-container matColumnDef="test14">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap">46 To 60 Days</th>
+          <td *matCellDef="let element"> {{element.test14}} </td>
+        </ng-container>
+  
+  
+        <ng-container matColumnDef="test15">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap">61 To 90 Days</th>
+          <td *matCellDef="let element"> {{element.test15}} </td>
+        </ng-container>
+  
+  
+        <ng-container matColumnDef="test16">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap100">91 To 120 Days</th>
+          <td *matCellDef="let element"> {{element.test16}} </td>
+        </ng-container>
+  
+  
+        <ng-container matColumnDef="test17">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap">>120 Days</th>
+          <td *matCellDef="let element"> {{element.test17}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="test18">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap">ASM Status</th>
+          <td *matCellDef="let element"> {{element.test18}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="test19">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap100">Distributor Status</th>
+          <td *matCellDef="let element"> {{element.test19}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test20">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap100">State Head Status</th>
+          <td *matCellDef="let element"> {{element.test20}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test21">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap100">Commercial Status</th>
+          <td *matCellDef="let element"> {{element.test21}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="test22">
+          <th *matHeaderCellDef mat-sort-header class="mid-gap100">Logistic Status</th>
+          <td *matCellDef="let element"> {{element.test22}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="exportcheck">
+          <th *matHeaderCellDef mat-sort-header> <input type="checkbox"> Select All </th>
+          <td *matCellDef="let element"> <input type="checkbox"> {{element.exportcheck}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="action" stickyEnd>
+          <th *matHeaderCellDef mat-sort-header class="sticky"> Action</th>
+          <td *matCellDef="let element">{{element.action}} 
+            <span class="status-approved">Approved</span>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="openDialog()">
+                <span>Invoice Details</span>
+              </button>
+              <button mat-menu-item> 
+                <span>Add Contract Details</span>
+              </button>
+              <button mat-menu-item>
+                <span>View Details</span>
+              </button>
+            </mat-menu>
+            
+          </td>
+        </ng-container>
+        
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      </div>
+        <mat-paginator #paginator
+                     [pageSize]="10"
+                     [pageSizeOptions]="[5, 10, 20]"
+                     [showFirstLastButtons]="true">
+      </mat-paginator>
+  
+  </div>

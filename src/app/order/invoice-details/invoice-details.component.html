@@ -1,0 +1,122 @@
+<div class="cancel-button" (click)="onClose()">
+    <mat-icon>close</mat-icon>
+</div>
+
+<div class="headign-text">
+<h1>Add Multilple Invoice</h1>
+</div>
+
+<div class="vertical-scroll-box">
+
+<div class="main-table">
+   
+<div class="table-height" style="overflow:auto">
+    
+        <table mat-table #table [dataSource]="dataSource" matSort class="example-container mat-elevation-z8">
+      
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+      
+          <!-- Position Column -->
+          <ng-container matColumnDef="invoiceNumber">
+            <th *matHeaderCellDef mat-sort-header> Invoice Number </th>
+            <td *matCellDef="let element"> {{element.invoiceNumber}} </td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="invoiceDate">
+            <th *matHeaderCellDef mat-sort-header> Invoice Date </th>
+            <td *matCellDef="let element"> {{element.invoiceDate}} </td>
+          </ng-container>
+    
+      
+          <!-- Weight Column -->
+          <ng-container matColumnDef="vehicleNo">
+            <th *matHeaderCellDef mat-sort-header> Vehicle No </th>
+            <td *matCellDef="let element"> {{element.vehicleNo}} </td>
+          </ng-container>
+      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="driverMobNo">
+            <th *matHeaderCellDef mat-sort-header> Driver MobNo </th>
+            <td *matCellDef="let element"> {{element.driverMobNo}} </td>
+          </ng-container>
+      
+       <ng-container matColumnDef="dispatchQty">
+            <th *matHeaderCellDef mat-sort-header> Dispatch Qty</th>
+            <td *matCellDef="let element"> {{element.dispatchQty}} </td>
+          </ng-container>
+      
+          <!-- <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+        </table>
+    </div>
+          <mat-paginator #paginator
+                       [pageSize]="10"
+                       [pageSizeOptions]="[5, 10, 20]"
+                       [showFirstLastButtons]="true">
+        </mat-paginator>
+     
+    
+    </div>
+
+<div class="invoiceInfo search-box">
+    <div class="account-form">
+
+
+<div class="form-title">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label> Invoice Number</mat-label>
+                <input matInput>
+            </mat-form-field>
+</div>
+    
+
+        <div class="form-title">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Invoice Date</mat-label>
+                <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="invoiceDate">
+                <mat-datepicker-toggle matSuffix [for]="invoiceDate"></mat-datepicker-toggle>
+                <mat-datepicker #invoiceDate></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        
+        <div class="form-title">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Vechicle No</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+
+
+        <div class="form-title">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Total Despatch Qty</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+
+        
+        <div class="form-title">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Driver Mobile Number</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+
+    
+    </div>
+    
+    <ul class="cen-btn">
+        <li><button mat-raised-button color="primary">Submit</button></li>
+    </ul>
+
+
+</div>
+
+</div>

@@ -1,0 +1,77 @@
+.circle {
+    width: 45px;
+    height: 45px;
+    border: 1px solid;
+    border-radius: 50%;
+    text-align: center;
+    position: fixed;
+    right: 55px;
+    bottom: 75px;
+    transition: all .3s ease-in-out;
+}
+.circle:hover {
+    width: 60px;
+    height: 60px;
+}
+.arrow-left-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: -3px;
+}
+.circle:hover .arrow-left-right {
+    top: 2px;
+}
+.arrow-up, .arrow-left, .arrow-right, .arrow-down {
+    height: 15px;
+}
+.arrow-down {
+    margin-top: -8px;
+}
+.circle:hover .arrow-down {
+    margin-top: 0px;
+}
+.arrow-up {
+    position: relative;
+    top: 1px;
+}
+.arrow-right {
+    margin-left: -4px;
+}
+.circle .mat-icon {
+    transition: all .3s ease-in-out;
+}
+.circle .mat-icon:hover {
+    color: red;
+    cursor: pointer;
+}
+.circle:hover .arrow-left {
+    position: relative;
+    left: 0px;
+}
+.circle:hover .arrow-right {
+    position: relative;
+    right: 0px;
+}
+.circle:hover .arrow-down {
+    position: relative;
+    bottom: -5px;
+}
+.circle:hover .arrow-up {
+    position: relative;
+    top: 0px;
+}
+.circle:hover .arrow-left-right {
+    top: 3px;
+}
+
+
+
+
+/* Responsive Design */
+@media only screen and (max-width: 980px) {
+    .circle {
+        display: none;
+    }
+}

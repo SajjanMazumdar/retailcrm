@@ -1,0 +1,62 @@
+<div class="all-content">
+    <app-sidemenu (openSubMenu)="openSubMenu($event)" *ngIf="mainService.isLogin"></app-sidemenu>
+
+    <mat-sidenav-container [ngClass]="false ? 'base-container' : 'base-container login'" (backdropClick)="NavClose('backdrop')">
+
+        <mat-sidenav #sidenav (keydown.escape)="NavClose('escape')" disableClose *ngIf="mainService.isLogin">
+            <div class="sub-menu-container">
+                <mat-icon (click)="NavClose('toggle button')">close</mat-icon>
+                <!-- <i class="fa fa-arrow-circle-o-left" aria-hidden="true" ></i> -->
+
+                <ul class="sub-menu-list">
+                    <li (click)="goToAccount(menu.module,menu.url)" *ngFor="let menu of subMenuList" [ngClass]="menu.index == selected_menu_index ? 'active' : ''">
+                        {{menu.name}}
+                    </li>
+                    <!-- <li (click)="goToDealer()">Dealer</li>
+                    <li (click)="goToSubDealer()">Sub-Dealer</li>
+                    <li (click)="goToEngineer()">Engineer</li>
+                    <li (click)="goToMason()">Mason</li>
+                    <li (click)="goToIHBOwner()">Owner</li>
+                    <li (click)="goToBranches()">Branches</li>
+                    <li (click)="goToGeneral()">General</li> -->
+                </ul>
+
+            </div>
+            <!-- <p><button mat-button (click)="NavClose('toggle button')">Toggle</button></p> -->
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+
+            <div class="container-main">
+                <!-- <p>Closed due to: {{reason}}</p> -->
+
+                <div class="side-menu-tigger" (click)="NavOpen()" *ngIf="mainService.isLogin">
+                    <!-- <p><button mat-button >Open</button></p> -->
+                    <!-- <i class="fa fa-chevron-circle-right" aria-hidden="true" (click)="NavOpen()"></i> -->
+                    <!-- <i class="fa fa-arrow-circle-o-right" aria-hidden="true" (click)="NavOpen()"></i> -->
+                    <mat-icon (click)="NavOpen()" *ngIf="menu_bar">menu</mat-icon>
+                </div>
+
+                <div [ngClass]="mainService.isLogin ? 'header-dashboard-container' : 'header-dashboard-container login'">
+
+                    <div class="header-container" *ngIf="mainService.isLogin">
+                        <app-header></app-header>
+                    </div>
+
+                    <div class="dashboard-container">
+                        <router-outlet></router-outlet>
+                    </div>
+
+                    <div class="footer-container" *ngIf="mainService.isLogin">
+                        <app-footer></app-footer>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+</div>

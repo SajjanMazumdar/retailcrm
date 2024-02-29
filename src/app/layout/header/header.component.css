@@ -1,0 +1,82 @@
+.header-panel {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.header-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    right: 75px;
+    transform: translateX(-75px);
+}
+.hader-user-details {
+    margin:0 0 0 10px;
+}
+.header-maps, .hader-user-details {
+    padding: 4px;
+    margin-top: -12px;
+}
+.mat-icon {
+    border: 1px solid #fff;
+    padding: 4px;
+}
+.hader-user-details mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.arrow_down {
+    position: absolute;
+}
+.header-profile {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+.dropdown.mat-elevation-z1 {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 88%;
+    transform: translateX(-88%);
+    background: #fff;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .7);
+    padding: 10px;
+    border-radius: 5px;
+}
+mat-list-item a {
+    font-size: 16px;
+}
+mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
+    cursor: pointer;
+}
+.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+    height: 27px;
+}
+mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.arrow_up {
+    transform: rotate(180deg);
+    transition: all .2s ease-in-out;
+    margin-left: -9px
+}
+mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.arrow_down {
+    transition: all .2s ease-in-out;
+    margin-left: -9px
+}
+.header-title p, .header-user .mat-icon {
+    color: #fff;
+}
+.header-title p {
+font-family: 'Source Serif Pro';
+}
+p.short-form {
+    display: none;
+}
+
+
+/* Responsive Design */
+
+@media only screen and (max-width: 600px) {
+    p.desktop {
+        display: none;
+    }
+    p.short-form {
+        display: block;
+    }
+}

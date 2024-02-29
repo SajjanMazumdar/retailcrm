@@ -1,0 +1,337 @@
+
+/* Account-Listing page Start Here */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+th, td {
+text-align: left;
+padding: 8px;
+border-right: 1px solid;
+border-bottom: 1px solid;
+}
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {    
+    min-width: 30px;
+    line-height: 30px;
+    padding: 0;
+}
+::ng-deep .mat-sort-header-container {
+    color: #fff;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    padding: 2px 7px;
+}
+tr.mat-header-row.cdk-header-row.ng-star-inserted {
+    background: #2F73A0;
+}
+a.add-icon {
+    cursor: pointer !important;
+}
+.search-form ::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+    padding: 4px 0px 9px !important;
+}
+::ng-deep .mat-sort-header-arrow.ng-trigger.ng-trigger-arrowPosition {
+    color: #fff;
+}
+tr.mat-row.cdk-row.ng-star-inserted {
+    transition: all .3s ease-in-out;
+}
+tr.mat-row.cdk-row.ng-star-inserted:hover {
+    background: #F8F6F9;
+}
+tr.mat-row.cdk-row.ng-star-inserted:nth-child(2n+1) {
+    background: #F8F6F9;
+}
+::-webkit-scrollbar {
+    width: 6px !important;
+    height: 10px !important;
+}
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+.table-filter a svg, .table-search-export a svg {
+    padding: 6px 20px;
+    border-radius: 5px;
+}
+a.filter-tools svg {
+    border: 1px solid #808080;
+}
+a.filter-tools.deactive svg {
+    border: 1px solid #F44336;
+}
+/* a.filter-tools svg:hover path, a.filter-tools svg:hover plygon  {
+    fill: #F44336;
+    border: 1px solid #F44336;
+} */
+a.add-icon svg {
+    border: 1px solid  #673AB7;
+}
+.table-search-export a svg {
+    border: 1px solid #218721;
+}
+a.export-icon.screen svg {
+    border: 1px solid #808080 !important;
+}
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    background: #F8F9FA;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 0;
+    margin-left: 8px;
+}
+.table-search-export .mat-form-field-flex > .mat-form-field-infix {
+    padding: .5em 0px !important;
+}
+.mat-header-row.cdk-header-row.ng-star-inserted {
+    background: #2f73a0;
+    position: sticky;
+    top: 0;
+    z-index: 8;
+}   
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0px !important;
+}
+.mat-form-field {
+    margin-right: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.table-search-export .mat-icon {
+    /* border: 1px solid #ccc; */
+    border-radius: 4px 0px 0px 4px;
+    padding: 5px 4px 6px;
+    color: #ccc;
+    position: relative;
+    top: 3px;
+    left: 2px;
+    border-right: none;
+}
+.mat-icon {
+    cursor: pointer;
+}
+.table-search-export .mat-form-field-flex > .mat-form-field-infix {
+    padding: .5em 0px !important;
+}
+.mat-header-row.cdk-header-row.ng-star-inserted {
+    background: #2f73a0;
+    position: sticky;
+    top: 0;
+    z-index: 8;
+} 
+a.filter-tools {
+    margin-right: 20px;
+}
+a.export-icon {
+    position: relative;
+    top: 7px;
+    margin-left: 10px;
+}
+th.mat-sort-header.mat-header-cell.cdk-header-cell.ng-star-inserted {
+    border-right: 1px solid #fff;
+}
+td.mat-cell {
+    border: 1px solid #ccc;
+}
+.table-height {
+    overflow: auto;
+    max-height: 460px;
+    margin-left: 8px;
+}
+::ng-deep.distributor .mat-sort-header-content {
+    width: 130px !important;
+}
+::ng-deep th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+    padding-right: 5px !important;
+}
+.mat-paginator {
+    margin-bottom: 30px;
+}
+::ng-deep.table-margin .mat-sort-header-content {
+    width: 80px !important;
+}
+/* ::ng-deep td.mat-cell:last-of-type {
+    background: #cccccc;
+    border-bottom: 1px solid;
+} */
+.table-search-export.search-form {
+    display: flex;
+}
+ ::ng-deep .button-space .mat-menu-item {
+    line-height: 30px !important;
+    height: 30px !important;
+}
+.example-list-section ul {
+    list-style: none;
+    padding: 0 5px 0 10px;
+}
+::ng-deep .example-list-section .mat-checkbox-layout {
+    padding-left: 5px !important;
+}
+::ng-deep .mat-menu-panel {
+    max-height: 250px !important;
+}
+::ng-deep .filter_button .mat-menu-item {
+    padding: 0px 5px;
+    background: #3A6998;
+    margin: 0 2px;
+    line-height: 20px;
+    height: 25px;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+.filter_button {
+    display: flex;
+}
+::ng-deep .filter_button .mat-menu-item:hover:not([disabled]) {
+    background: rgb(47 115 160 / 87%);
+}
+::ng-deep .example-list-section .mat-form-field {
+    display: block;
+    text-align: left;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+}
+::ng-deep .example-list-section .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0 0 -10px 0;
+}
+.filter-tools, .export-icon {
+    cursor: pointer;
+}
+
+/* Account-Listing page End here */
+
+
+
+
+
+
+
+
+/* Account Create Page start Here */
+.account-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2em;    
+}
+.account-key-information {
+    box-shadow: 0px 1px 13px #9f9f9f96;
+    padding: 20px;
+    margin: 15px 0px 15px ;
+    border-radius: 10px;  
+}
+.mat-icon {
+    margin-left: -8px;
+    font-size: 17px;
+}
+button.mat-chip-remove.mat-chip-trailing-icon.ng-star-inserted {
+    border: none;
+}
+.mat-flat-button.mat-primary, 
+.mat-raised-button.mat-primary, 
+.mat-fab.mat-primary, 
+.mat-mini-fab.mat-primary {
+    padding: 0px 42px;
+}
+.example-action-buttons {
+    padding-bottom: 20px;
+  }
+  
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+justify-content: space-between;
+align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+margin-left: 8px;
+}
+mat-expansion-panel.mat-expansion-panel {
+    margin: 10px;
+}
+.account-key-information.full {
+    margin: 10px 10px;
+}
+.mat-expansion-panel-header-title h2 {
+    margin-bottom: 0;
+}
+.primary-button {
+    margin-top: 10px;
+}
+.mat-expansion-panel.mat-expanded.mat-expansion-panel-spacing {
+    margin: 10px 10px;
+}
+.mat-expansion-panel-header-title h2 {
+    font-size: 17px;
+}
+mat-expansion-panel-header.mat-expansion-panel-header {
+    background: rgb(221, 221, 221);
+}
+.form-title .mat-expansion-panel-header {
+    background: rgb(221, 221, 221);
+}
+.mat-expansion-panel-header.mat-expanded:focus, .mat-expansion-panel-header.mat-expanded:hover {
+    background: rgb(221, 221, 221);
+}
+.delete-btn {
+    width: 82px;
+    height: 30px;
+    position: relative;
+    padding: 0;
+    left: 181%;
+    bottom: -22px;
+    line-height: 0;
+}
+.mat-expansion-panel-header {
+    height: 38px;
+}
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { 
+    padding: 1em 0 !important;
+}
+::ng-deep .mat-form-field-label-wrapper {
+    top: -0.84375em;
+}
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.59375em) scale(.75);
+}
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+    padding-left: 24px;
+}
+
+/* Account Create Page start Here */
+
+
+
+/* Responsive Design */
+@media only screen and (max-width: 980px) {
+    .table-search-export.search-form {       
+        flex-direction: column-reverse;
+        text-align: end;
+        margin-top: -45px;
+    }
+    .table-header {
+        display: block;
+        justify-content: space-between;
+        margin-right: 10px;
+        background: #F8F9FA;
+        align-items: flex-start;
+        margin-bottom: 5px;
+        margin-top: 0;
+        margin-left: 8px;
+        flex-direction: column;
+    }
+}
+

@@ -1,0 +1,34 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+  .mat-elevation-z8 {
+      margin: 0 15px 50px 15px;
+      box-shadow: 0px 1px 3px #9f9f9f96;
+  }
+  mat-form-field.mat-form-field {
+    margin: 0px 15px;
+}
+.mat-form-field {
+  width: 98% !important;
+}
+.filter-icon {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+td, th {
+  width: 0% !important;
+}
+td {
+  border: 1px solid;
+}

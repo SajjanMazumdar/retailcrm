@@ -1,0 +1,604 @@
+<div class="account-details">
+    <div class="account-title">
+        <!-- <h3> <span>&nbsp; &nbsp; &nbsp;</span> Account / Dealer /</h3> -->
+        <div class="crumbs">
+            <ul>
+                <li><a >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M3.783 2.826L12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976zM5 4.604v9.185a4 4 0 0 0 1.781 3.328L12 20.597l5.219-3.48A4 4 0 0 0 19 13.79V4.604L12 3.05 5 4.604zM11 10V7h2v3h3v2h-3v3h-2v-3H8v-2h3z"
+                            fill="rgba(0, 0, 0, .87)" />
+                    </svg>
+                </a></li>
+                <li><a class="link-hover" (click)="onClose()"> General - List</a></li>
+                <li><a > General </a></li>
+                <!-- <li><a > Cart</a></li>
+                <li><a > Checkout</a></li> -->
+            </ul>
+        </div>
+        <div class="cancel-button" (click)="onClose()">
+            <mat-icon>close</mat-icon>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="example-action-buttons">
+    <button mat-button (click)="accordion.openAll()">Expand All</button>
+    <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+  </div> -->
+
+  <!-- Key Information Start -->
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <h2>Key Information</h2>
+            </mat-panel-title>
+           
+        </mat-expansion-panel-header>
+
+        <div class="account-key-information">
+           
+            <div class="account-form">
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>SAP ID</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Distributor Name</mat-label>
+                        <input matInput [formControl]="distributor" required>
+                        <mat-error *ngIf="distributor.invalid">Distributor Name Required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Contact Person Name</mat-label>
+                        <input matInput [formControl]="name" required>
+                        <mat-error *ngIf="name.invalid">Name Required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <div class="example-container">
+                        <mat-form-field appearance="outline" class="example-full-width">
+                            <mat-label>Enter your email</mat-label>
+                            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Phone No</mat-label>
+                        <input matInput [formControl]="phone" required>
+                        <mat-error *ngIf="phone.invalid">Phone No. Required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Alternative Mobile No</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Landline No</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Counter protentional </mat-label>
+                        <input matInput [formControl]="pan" required>
+                        <mat-error *ngIf="pan.invalid">Counter Required</mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Monthly Steel Req</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Status </mat-label>
+                        <mat-select>
+                            <mat-option value="one">Active SSIL</mat-option>
+                            <mat-option value="two">Prospective</mat-option>
+                            <mat-option value="three">Servey</mat-option>
+                            <mat-option value="four">Inactive</mat-option>
+                            <mat-option value="five">Rejeccted</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-chip-list example-full-width" appearance="outline">
+                        <mat-label>Brand Other Than SSIL</mat-label>
+                        <mat-chip-list #chipList aria-label="Fruit selection">
+                            <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable"
+                                (removed)="remove(fruit)">
+                                {{fruit}}
+                                <button matChipRemove *ngIf="removable">
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip>
+                            <input placeholder="New fruit..." #fruitInput [formControl]="fruitCtrl"
+                                [matAutocomplete]="auto" [matChipInputFor]="chipList"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                (matChipInputTokenEnd)="add($event)">
+                        </mat-chip-list>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                            <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                                {{fruit}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Select NOD </mat-label>
+                        <mat-select>
+                            <mat-option value="one">NOD</mat-option>
+                            <mat-option value="two">Pure NOD</mat-option>
+                            <mat-option value="three">Normal</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Super & Exclusive </mat-label>
+                        <mat-select>
+                            <mat-option value="one">Super Dealer</mat-option>
+                            <mat-option value="two">Exclusive Dealer</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+    </mat-expansion-panel>
+
+</mat-accordion>
+<!-- Key Information End -->
+
+
+
+
+<!-- Personal details Start -->
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <h2>Personal Details</h2>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="account-key-information">
+           
+            <div class="account-form">
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Date of Appointment as SSIL Dealer</mat-label>
+                        <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker01">
+                        <mat-datepicker-toggle matSuffix [for]="picker01"></mat-datepicker-toggle>
+                        <mat-datepicker #picker01></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Date of Birth</mat-label>
+                        <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker02">
+                        <mat-datepicker-toggle matSuffix [for]="picker02"></mat-datepicker-toggle>
+                        <mat-datepicker #picker02></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Date of Anniversary</mat-label>
+                        <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker03">
+                        <mat-datepicker-toggle matSuffix [for]="picker03"></mat-datepicker-toggle>
+                        <mat-datepicker #picker03></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+    </mat-expansion-panel>
+
+
+    
+
+</mat-accordion>
+<!-- Personal Details End -->
+
+
+<!-- Address Details Start -->
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <h2>Address Details</h2>
+            </mat-panel-title>
+            
+        </mat-expansion-panel-header>
+
+        <div class="account-key-information">
+            
+            <div class="account-form">
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Region </mat-label>
+                        <mat-select>
+                            <mat-option value="one">Central</mat-option>
+                            <mat-option value="two">East</mat-option>
+                            <mat-option value="three">North</mat-option>
+                            <mat-option value="four">North-East</mat-option>
+                            <mat-option value="five">South</mat-option>
+                            <mat-option value="six">East</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>State </mat-label>
+                        <mat-select>
+                            <mat-option value="one">Anadaman</mat-option>
+                            <mat-option value="two">Bihar</mat-option>
+                            <mat-option value="three">Darda and Nagar Haveli</mat-option>
+                            <mat-option value="four">Daman and Diu</mat-option>
+                            <mat-option value="five">Hyderabad</mat-option>
+                            <mat-option value="six">Jharkhand</mat-option>
+                            <mat-option value="seven">Odisha</mat-option>
+                            <mat-option value="eight">Puducherry</mat-option>
+                            <mat-option value="nine">ROI Test State</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>District </mat-label>
+                        <mat-select>
+                            <mat-option value="one">Bakaro</mat-option>
+                            <mat-option value="two">Chatra</mat-option>
+                            <mat-option value="three">Deogarh</mat-option>
+                            <mat-option value="four">Dhanbad</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>           
+                
+               
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>City</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Pincode</mat-label>
+                        <input matInput [formControl]="pincode" required>
+                        <mat-error *ngIf="pincode.invalid">Pincode Required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Block </mat-label>
+                        <mat-select>
+                            <mat-option value="one">Bakaro</mat-option>
+                            <mat-option value="two">Chatra</mat-option>
+                            <mat-option value="three">Deogarh</mat-option>
+                            <mat-option value="four">Dhanbad</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Street</mat-label>
+                        <input matInput [formControl]="street" required>
+                        <mat-error *ngIf="street.invalid">Street Required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Market Place </mat-label>
+                        <mat-select>
+                            <mat-option value="one">Bakaro</mat-option>
+                            <mat-option value="two">Chatra</mat-option>
+                            <mat-option value="three">Deogarh</mat-option>
+                            <mat-option value="four">Dhanbad</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <button mat-raised-button color="primary" class="primary-button">ADD</button>
+
+       
+
+    </mat-expansion-panel>
+
+    
+
+</mat-accordion>
+
+
+<!-- Address Detail End -->
+
+
+<!-- KYC Details Start -->
+
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+            <h2>KYC Details</h2>
+            </mat-panel-title>
+            
+        </mat-expansion-panel-header>
+
+        <div class="account-key-information">
+            
+            <div class="account-form">
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Aadhar No</mat-label>
+                        <input matInput [formControl]="aadhar" required>
+                        <mat-error *ngIf="aadhar.invalid">Aadhar Required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Pan No </mat-label>
+                        <input matInput [formControl]="pan" required>
+                        <mat-error *ngIf="pan.invalid">Pan No. Required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>GST No</mat-label>
+                        <input matInput [formControl]="gst" required>
+                        <mat-error *ngIf="gst.invalid"> GST No. Required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Trade License</mat-label>
+                        <input matInput [formControl]="trade" required>
+                        <mat-error *ngIf="trade.invalid">Trade License Required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+    
+
+    </mat-expansion-panel>
+
+  
+
+
+
+</mat-accordion>
+
+
+<!-- KYC Details End -->
+
+
+<!-- Godown Start -->
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+            <h2>Godown Information</h2>
+            </mat-panel-title>
+            
+        </mat-expansion-panel-header>
+
+        <div class="account-key-information">
+            
+            <div class="account-form">
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Godown </mat-label>
+                        <mat-select>
+                            <mat-option value="one">Yes</mat-option>
+                            <mat-option value="two">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Godown Status </mat-label>
+                        <mat-select>
+                            <mat-option value="one">Own</mat-option>
+                            <mat-option value="two">Rented</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Godown Area</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Godown Address</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Other Business</mat-label>
+                        <mat-select>
+                            <mat-option value="one">Cement</mat-option>
+                            <mat-option value="two">Roofing Sheet</mat-option>
+                            <mat-option value="three">Others</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Own Retail Counter</mat-label>
+                        <mat-select>
+                            <mat-option value="one">Yes</mat-option>
+                            <mat-option value="two">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+    
+
+    </mat-expansion-panel>
+
+  
+
+
+
+</mat-accordion>
+
+<!-- Godown End -->
+
+
+
+<!-- Financial Details Start -->
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <h2>Financial Details</h2>
+            </mat-panel-title>
+            
+        </mat-expansion-panel-header>
+
+        <div class="account-key-information">
+            
+            <div class="account-form">
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Annual Turnover</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Bank Address</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Authorized Bank</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Branch Details</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        
+    </mat-expansion-panel>
+
+  
+
+
+
+</mat-accordion>
+
+
+<!-- Financial Details End -->
+
+
+<!-- Employee Tagging Details Start -->
+
+
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h2>  Employee Tagging Details </h2>
+            </mat-panel-title>
+            
+        </mat-expansion-panel-header>
+
+        <div class="account-key-information">
+            <h2></h2>
+            <div class="account-form">
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Responsible Primary :</mat-label>
+                        <mat-select>
+                            <mat-option value="one">Chandrashekhar Kumar (0123456789)</mat-option>
+                            <mat-option value="two">Manoj Kumar Verma (0123456789)</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Responsible Secondary :</mat-label>
+                        <mat-select>
+                            <mat-option value="one">Chandrashekhar Kumar (0123456789)</mat-option>
+                            <mat-option value="two">Manoj Kumar Verma (0123456789)</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-title">
+                    <mat-form-field class="example-chip-list example-full-width" appearance="outline">
+                        <mat-label>Account Visible to : </mat-label>
+                        <mat-chip-list #chipList aria-label="Fruit selection">
+                            <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable"
+                                (removed)="remove(fruit)">
+                                {{fruit}}
+                                <button matChipRemove *ngIf="removable">
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip>
+                            <input placeholder="New fruit..." #fruitInput [formControl]="fruitCtrl"
+                                [matAutocomplete]="auto" [matChipInputFor]="chipList"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                (matChipInputTokenEnd)="add($event)">
+                        </mat-chip-list>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                            <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                                {{fruit}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+       
+
+    </mat-expansion-panel>
+
+    
+
+   
+
+</mat-accordion>
+
+
+
+<!-- Employee Tagging Details End -->
+
+<div class="account-key-information full">
+    <div class="account-form">
+        <div class="form-title button">
+            <button mat-raised-button color="primary">Submit</button>
+        </div>
+    </div>
+</div>

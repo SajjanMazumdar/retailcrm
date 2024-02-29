@@ -1,0 +1,219 @@
+<div class="table-header">
+    <div class="table-filter">
+        <a href="#" class="filter-tools"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19"><path fill="none" d="M0 0H24V24H0z"/><path d="M6.929.515L21.07 14.657l-1.414 1.414-3.823-3.822L15 13.5V22H9v-8.5L4 6H3V4h4.585l-2.07-2.071L6.929.515zM9.585 6H6.404L11 12.894V20h2v-7.106l1.392-2.087L9.585 6zM21 4v2h-1l-1.915 2.872-1.442-1.443L17.596 6h-2.383l-2-2H21z" fill="rgba(244,67,54,1)"/></svg></a>
+        <a href="#" class="add-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="rgba(103,58,183,1)"/></svg></a>
+
+    </div>
+    <div class="table-search-export">
+        <mat-form-field appearance="outline">
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
+        <a href="#" class="export-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="19" height="19"><path fill="none" d="M0 0h24v24H0z"/><path d="M13 10h5l-6 6-6-6h5V3h2v7zm-9 9h16v-7h2v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-8h2v7z" fill="rgba(33,135,33,1)"/></svg></a>
+    </div>
+</div>
+
+<div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource" matSort>
+        <!-- <table mat-table [dataSource]="dataSource" > -->
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef mat-sort-header style="max-width: 60px;"> No.
+            <div class="filter-icon">
+                <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                     width="18" height="18"><path fill="none" d="M0 0H24V24H0z"/>
+                     <path d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z" fill="rgba(0,0,0,0.54)"/></svg></button>
+                 <mat-menu #menu="matMenu">
+                     <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                 </mat-menu>
+             </div> 
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" style="max-width: 60px;"> {{element.position}} </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header style="max-width: 90px;"> ID 
+            <div class="filter-icon">
+               <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                    width="18" height="18"><path fill="none" d="M0 0H24V24H0z"/>
+                    <path d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z" fill="rgba(0,0,0,0.54)"/></svg></button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                </mat-menu>
+            </div>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" style="max-width: 90px;"> {{element.name}} </mat-cell>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <mat-header-cell *matHeaderCellDef mat-sort-header style="max-width: 125px;"> Distributor Name
+            <div class="filter-icon">
+                <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                     width="18" height="18"><path fill="none" d="M0 0H24V24H0z"/>
+                     <path d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z" fill="rgba(0,0,0,0.54)"/></svg></button>
+                 <mat-menu #menu="matMenu">
+                     <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                 </mat-menu>
+             </div>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" style="max-width: 125px;"> {{element.weight}} </mat-cell>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <mat-header-cell *matHeaderCellDef mat-sort-header style="max-width: 100px;"> Dealer Name
+            <div class="filter-icon">
+                <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                     width="18" height="18"><path fill="none" d="M0 0H24V24H0z"/>
+                     <path d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z" fill="rgba(0,0,0,0.54)"/></svg></button>
+                 <mat-menu #menu="matMenu">
+                     <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                 </mat-menu>
+             </div>   
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" style="max-width: 100px;"> {{element.symbol}} </mat-cell>
+      </ng-container>
+  
+   <ng-container matColumnDef="test">
+        <mat-header-cell *matHeaderCellDef mat-sort-header style="max-width: 120px;"> Contact Person
+            <div class="filter-icon">
+                <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                     width="18" height="18"><path fill="none" d="M0 0H24V24H0z"/>
+                     <path d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z" fill="rgba(0,0,0,0.54)"/></svg></button>
+                 <mat-menu #menu="matMenu">
+                     <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                 </mat-menu>
+             </div>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" style="max-width: 120px;"> {{element.test}} </mat-cell>
+      </ng-container>
+  
+       <ng-container matColumnDef="test1">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> SAP ID
+            <div class="filter-icon">
+                <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                     width="18" height="18"><path fill="none" d="M0 0H24V24H0z"/>
+                     <path d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z" fill="rgba(0,0,0,0.54)"/></svg></button>
+                 <mat-menu #menu="matMenu">
+                     <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                 </mat-menu>
+             </div>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.test1}} </mat-cell>
+      </ng-container>
+       <ng-container matColumnDef="test2">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Address
+            <div class="filter-icon">
+                <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                     width="18" height="18"><path fill="none" d="M0 0H24V24H0z"/>
+                     <path d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z" fill="rgba(0,0,0,0.54)"/></svg></button>
+                 <mat-menu #menu="matMenu">
+                     <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                 </mat-menu>
+             </div>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.test2}} </mat-cell>
+      </ng-container>
+   <ng-container matColumnDef="test3">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Pincode
+            <div class="filter-icon">
+                <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                     width="18" height="18"><path fill="none" d="M0 0H24V24H0z"/>
+                     <path d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z" fill="rgba(0,0,0,0.54)"/></svg></button>
+                 <mat-menu #menu="matMenu">
+                     <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                 </mat-menu>
+             </div>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.test3}} </mat-cell>
+      </ng-container>
+       <ng-container matColumnDef="test4">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> GPS Address 
+            <div class="filter-icon">
+                <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                     width="18" height="18"><path fill="none" d="M0 0H24V24H0z"/>
+                     <path d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z" fill="rgba(0,0,0,0.54)"/></svg></button>
+                 <mat-menu #menu="matMenu">
+                     <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                 </mat-menu>
+             </div>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.test4}} </mat-cell>
+      </ng-container>
+       <ng-container matColumnDef="test5">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Region
+            <div class="filter-icon">
+                <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                     width="18" height="18"><path fill="none" d="M0 0H24V24H0z"/>
+                     <path d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z" fill="rgba(0,0,0,0.54)"/></svg></button>
+                 <mat-menu #menu="matMenu">
+                     <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                 </mat-menu>
+             </div>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.test5}} </mat-cell>
+      </ng-container>
+       <ng-container matColumnDef="test6">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> State
+            <div class="filter-icon">
+                <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                     width="18" height="18"><path fill="none" d="M0 0H24V24H0z"/>
+                     <path d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z" fill="rgba(0,0,0,0.54)"/></svg></button>
+                 <mat-menu #menu="matMenu">
+                     <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                 </mat-menu>
+             </div>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.test6}} </mat-cell>
+      </ng-container>
+       <ng-container matColumnDef="test7">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> City
+            <div class="filter-icon">
+                <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                     width="18" height="18"><path fill="none" d="M0 0H24V24H0z"/>
+                     <path d="M21 4v2h-1l-5 7.5V22H9v-8.5L4 6H3V4h18zM6.404 6L11 12.894V20h2v-7.106L17.596 6H6.404z" fill="rgba(0,0,0,0.54)"/></svg></button>
+                 <mat-menu #menu="matMenu">
+                     <button mat-menu-item (click)="openDialog()">Open dialog</button>
+                 </mat-menu>
+             </div>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.test7}} </mat-cell>
+      </ng-container>
+       <ng-container matColumnDef="test8" stickyEnd>
+        <mat-header-cell *matHeaderCellDef class="sticky">
+             <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path fill="none" d="M0 0h24v24H0z"/><path d="M6.75 2.5A4.25 4.25 0 0 1 11 6.75V11H6.75a4.25 4.25 0 1 1 0-8.5zM9 9V6.75A2.25 2.25 0 1 0 6.75 9H9zm-2.25 4H11v4.25A4.25 4.25 0 1 1 6.75 13zm0 2A2.25 2.25 0 1 0 9 17.25V15H6.75zm10.5-12.5a4.25 4.25 0 1 1 0 8.5H13V6.75a4.25 4.25 0 0 1 4.25-4.25zm0 6.5A2.25 2.25 0 1 0 15 6.75V9h2.25zM13 13h4.25A4.25 4.25 0 1 1 13 17.25V13zm2 2v2.25A2.25 2.25 0 1 0 17.25 15H15z" fill="rgba(0,0,0,0.54)"/></svg>
+            </a> 
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="sticky"> <button mat-button [matMenuTriggerFor]="menu" #menuTrigger><mat-icon>more_vert</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openDialog()">Open dialog</button>
+        </mat-menu> </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+      <mat-paginator #paginator
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 20]"
+                   [showFirstLastButtons]="true">
+    </mat-paginator>
+  </div>
+  
+  
+  <!-- Copyright 2018 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->
+
+
+      <!-- <mat-dialog-content>
+        This is a dialog
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Okay</button>
+      </mat-dialog-actions> -->

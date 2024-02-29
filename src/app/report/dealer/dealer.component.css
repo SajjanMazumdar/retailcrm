@@ -1,0 +1,193 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    margin-left: 10px;
+  }
+  .mat-elevation-z8 {
+      box-shadow: none;
+      border: 1px solid #ccc;
+  }
+  .container{
+      background-color: white;
+      border: 1.5px solid black;
+      border-radius: 10px;
+      text-align: center;
+  }
+  .mat-table {
+    overflow: auto;
+    max-height: 340px;
+  }
+  .container{
+      background-color: white;
+      border: 1.5px solid black;
+      border-radius: 10px;
+      text-align: center;
+  }
+  .mat-table{
+      background-color: rgba(255, 255, 255, 0.959);
+      height : 100vh;
+      overflow: auto;   
+      width: 100%;
+  }
+  .mat-header-cell, .mat-cell {
+      /* min-width: 150px; */
+      border-right: 1px solid #ccc;
+      padding: 0 15px;
+  }
+  /* .mat-header-cell {
+      max-width: auto;
+  } */
+  .mat-header-cell.sticky, .mat-cell.sticky {
+    max-width: 30px;
+    width: 30px;
+    border-left: 1px solid #ccc;
+  }
+  .mat-cell.sticky {
+      padding: 0 30px 0 0;
+  }
+  .mat-header-cell.sticky {
+      padding: 0 9px 0 21px;
+  }
+  .mat-form-field-underline{
+      background-color:transparent;
+  }
+  
+  .mat-form-field-flex{
+      font-size: 14px;
+      line-height: 1em;
+      color: #555;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top: 8px;
+      padding: 2px;
+  }
+  .mat-form-field-wrapper{
+      padding-bottom: 1.25em;
+      padding-top: 1.25em;
+  }
+  .mat-form-field-infix{
+      border:0px;
+  }
+  .mat-paginator{
+      background-color: white;
+  }
+  
+  .mat-row, .mat-header-row {
+      min-width: 2800px;
+      width: 100%;
+    }
+    
+    .filter-icon {
+        position: absolute;
+        left: 100%;
+        top: -8px;
+    }
+    ::-webkit-scrollbar {
+        width: 6px !important;
+        height: 6px !important;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 10px;
+      }
+      .table-filter a {
+        padding: 10px;
+    }
+    .table-filter a svg, .table-search-export a svg {
+        /* border: 1px solid #2196F3; */
+        padding: 6px 20px;
+        border-radius: 5px;
+    }
+    a.filter-tools svg {
+        border: 1px solid #F44336;
+    }
+    a.add-icon svg {
+        border: 1px solid  #673AB7;
+    }
+    .table-search-export a svg {
+        border: 1px solid #218721;
+    }
+    .table-header {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 10px;
+        background: #F8F9FA;
+        align-items: center;
+    }
+    .table-search-export .mat-form-field-flex > .mat-form-field-infix {
+        padding: .5em 0px !important;
+    }
+    .mat-header-row.cdk-header-row.ng-star-inserted {
+        background: #F8F9FA;
+        position: sticky;
+        top: 0;
+        z-index: 8;
+    }   
+    .mat-form-field-appearance-outline .mat-form-field-wrapper {
+        margin: 0px !important;
+        /* margin-right: 30px; */
+    }
+    .mat-form-field {
+        margin-right: 25px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .table-search-export .mat-icon {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px 20px;
+        color: #ccc;
+    }
+    .table-header .table-search-export .mat-form-field-flex > .mat-form-field-infix {
+        padding: .6em 0 !important;
+    }
+    .mat-form-field-wrapper {
+        padding-bottom: 0px !important;
+    }
+    ::ng-deep .mat-form-field-flex > .mat-form-field-infix { 
+        padding: 0px !important;
+    }
+    /* .mat-icon {
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+    } */
+    ::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+         margin: 0.4em 0px !important;
+        }
+    ::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+        top: .84375em !important;
+        /* margin-top: -0.25em; */
+    }
+    a.export-icon {
+        position: relative;
+        top: 7px;
+    }
+    /* .mat-header-cell.sticky, .mat-cell.sticky {
+        width: 50px;
+        position: sticky;
+        right: -155px;
+        background: #F8F9FA;
+        border-left: 1px solid #ccc;
+    } */
+    /* .mat-cell.sticky, .mat-header-cell.sticky {
+        margin-right: -155px;
+    } */
+    .example-section {
+        margin: 12px 0;
+      }
+      
+      .example-margin {
+        margin: 0 12px;
+      }
+      
+      ul {
+        list-style-type: none;
+        margin-top: 4px;
+      }
+      .filter-icon ::ng-deep .mat-button {
+          min-width: 20px !important;
+          padding: 0 !important;
+      }

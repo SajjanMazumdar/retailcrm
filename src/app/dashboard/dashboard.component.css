@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+  }
+.box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+.wrapper-box {
+    float: left;
+    width: 40%;
+    padding: 10px;
+    height: 113px;
+}
+.wrapper-box.logo svg {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.wrapper-box.text {
+    text-align: center;
+    padding-top: 19px;
+    color: #fff;
+    width: 60%;
+}
+.wrapper-box.text p {
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0px 15px;
+}
+.wrapper-box.text h4 {
+    margin: 10px 0;
+    font-size: 40px;
+    font-family: ui-serif;
+}
+.wrapper-box.text p {
+    position: relative;
+    margin: 0;
+    display: inline-block;
+}
+.wrapper-box.text p:after {
+    position: absolute;
+    content: "";
+    top: -3px;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    transform: translateX(-50%);
+}
+.wrapper mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
+    color: #fff;
+    height: 50px;
+    width: 40px;
+    font-size: 43px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.dashboard-breadcrumbs h2 {
+    font-family: emoji;
+}
+table {
+    width: 100%;
+}
+.table-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin-top: 20px;
+}
+.first-table, .secound-table {
+    height: 350px;
+    overflow: auto;
+}
+.table-wrapper .first-table .mat-header-cell {
+    color: #fff;
+    background: #798089;
+}
+.table-wrapper .secound-table .mat-header-cell {
+    color: #fff;
+    background: #7986CB;
+}
+.first-table::-webkit-scrollbar {
+    width: 6px;
+}
+.first-table::-webkit-scrollbar-thumb {
+    background: linear-gradient(transparent, #798089);
+    border-radius: 6px;
+}
+.first-table::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(transparent, #313A46);
+}
+.secound-table::-webkit-scrollbar {
+    width: 6px;
+}
+.secound-table::-webkit-scrollbar-thumb {
+    background: linear-gradient(transparent, #7986CB);
+    border-radius: 6px;
+}
+.secound-table::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(transparent, #5C6BC0);
+}
+.table-wrapper .mat-header-row {
+    position: sticky !important;
+    top: 0;
+}
+td.mat-cell:last-of-type {
+    background: #fff !important;
+    border-bottom-color: rgba(0,0,0,.12) !important;
+}

@@ -1,0 +1,93 @@
+.login {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  overflow: hidden;
+  grid-gap: 10px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
+  margin-right: 75px;
+  border-radius: 10px;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+.example-full-width {
+  width: 100%;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+.login .example-form {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+}
+.login .mat-form-field {
+  width: 100%;
+}
+.login-label {
+  background: #c21d00;
+  padding: 8px 20px;
+  color: #fff;
+  font-size: 14px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+.login-label mat-label {
+  padding-left: 10px;
+}
+.login .mat-form-field-wrapper {
+  padding-bottom: 15px;
+}
+.login-design .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0 0 !important;
+}
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.3em 0px !important;}
+
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+}
+.login-design .mat-form-field-flex > .mat-form-field-infix {
+  padding: 0.7em 0px !important;
+}
+.mat-form-field {
+  line-height: 27px;
+}
+.login-design {
+  width: 400px;
+  padding: 20px;
+  margin: 20px -5px;
+  border-radius: 7px;
+  text-align: center;
+  box-shadow: 0px 0px 2px rgb(0 0 0 / 60%);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.slider-img img {
+  width: 100%;
+  height: 100%;
+}
+.mat-raised-button {
+  display: block;
+  width: 100%;
+}
+.login .example-section {
+  text-align: left;
+}

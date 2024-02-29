@@ -1,0 +1,215 @@
+<div class="headign-text">
+    <h1>Add Dispatch</h1>
+    </div>
+
+    <div class="invoiceInfo search-box">
+        <div class="account-form">
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label> Sold to Code*</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label> Ship to Code*</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Contract Type* </mat-label>
+            <mat-select>
+                <mat-option value="one">Central</mat-option>
+                <mat-option value="two">East</mat-option>
+                <mat-option value="three">North</mat-option>
+                <mat-option value="four">North-East</mat-option>
+                <mat-option value="five">South</mat-option>
+                <mat-option value="six">East</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label> Sales org*</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label> Distribution Channel*</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label> Division*</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Contract Start Date*</mat-label>
+            <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="startDate">
+            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Contract End Date*</mat-label>
+            <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="ContractEnd">
+            <mat-datepicker-toggle matSuffix [for]="ContractEnd"></mat-datepicker-toggle>
+            <mat-datepicker #ContractEnd></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+
+    <div class="form-title">
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Order Reason* </mat-label>
+            <mat-select>
+                <mat-option value="one">Central</mat-option>
+                <mat-option value="two">East</mat-option>
+                <mat-option value="three">North</mat-option>
+                <mat-option value="four">North-East</mat-option>
+                <mat-option value="five">South</mat-option>
+                <mat-option value="six">East</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>P.O. Date*</mat-label>
+            <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="Podate">
+            <mat-datepicker-toggle matSuffix [for]="Podate"></mat-datepicker-toggle>
+            <mat-datepicker #Podate></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>PO. No*</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Pay Terms*</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+
+    <div class="form-title">
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Plant 1* </mat-label>
+            <mat-select>
+                <mat-option value="one">Central</mat-option>
+                <mat-option value="two">East</mat-option>
+                <mat-option value="three">North</mat-option>
+                <mat-option value="four">North-East</mat-option>
+                <mat-option value="five">South</mat-option>
+                <mat-option value="six">East</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Incoterm 1 * </mat-label>
+            <mat-select>
+                <mat-option value="one">Central</mat-option>
+                <mat-option value="two">East</mat-option>
+                <mat-option value="three">North</mat-option>
+                <mat-option value="four">North-East</mat-option>
+                <mat-option value="five">South</mat-option>
+                <mat-option value="six">East</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Incoterm 2 *</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Plant 2 * </mat-label>
+            <mat-select>
+                <mat-option value="one">Central</mat-option>
+                <mat-option value="two">East</mat-option>
+                <mat-option value="three">North</mat-option>
+                <mat-option value="four">North-East</mat-option>
+                <mat-option value="five">South</mat-option>
+                <mat-option value="six">East</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Shipping Point*</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Price Data</mat-label>
+            <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="dataprice">
+            <mat-datepicker-toggle matSuffix [for]="dataprice"></mat-datepicker-toggle>
+            <mat-datepicker #dataprice></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Shipping Type *</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Insured dlv *</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Tolerance*</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="form-title">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Storage Location*</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+ 
+    </div>
+    <ul class="cen-btn">
+        <li><button mat-raised-button color="primary">Submit</button></li>
+    </ul>
+    </div>

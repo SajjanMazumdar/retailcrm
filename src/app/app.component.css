@@ -1,0 +1,174 @@
+.base-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 60px;
+    right: 0;
+}
+button.mat-focus-indicator.mat-button.mat-button-base {
+    width: 1px;
+    background: #fff;
+    height: 100vh;
+}
+mat-sidenav.mat-drawer.mat-sidenav.ng-tns-c37-0.ng-trigger.ng-trigger-transform.mat-drawer-over.ng-star-inserted.mat-drawer-opened button.mat-focus-indicator.mat-button.mat-button-base {
+    margin-left: 0;
+}
+
+mat-sidenav.mat-drawer.mat-sidenav.ng-tns-c37-0.ng-trigger.ng-trigger-transform.mat-drawer-over.ng-star-inserted.mat-drawer-opened::-webkit-scrollbar {
+    display: none;
+}
+app-dashboard.ng-star-inserted {
+    margin-left: 100px;
+}
+.container-main{
+    display: flex;
+}
+.container-main .side-menu-tigger {
+    /* width: 1px; */
+    box-shadow: 1px 8px 6px rgb(0 0 0 / 10%);
+    height: 100vh;
+    z-index: 99;
+    margin-left: 1px;
+}
+.footer-container {
+    position: fixed;
+    bottom: 0;
+    background: linear-gradient(45deg, #1d3557, #64B5F6);
+    width: 100%;
+    line-height: 25px;
+    color: #000;
+    height: 25px;
+    text-align: center;
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 40%);
+    z-index: 999;
+}
+.header-dashboard-container {
+    padding-top: 55px;
+}
+.header-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 55px;
+    background: linear-gradient(45deg, #1d3557, #64B5F6);
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 40%);
+    z-index: 9;
+}
+.side-menu-tigger .fa {
+    font-size: 30px;
+    position: relative;
+    left: 7px;
+    top: 21px;
+    cursor: pointer;
+}
+.header-container  {
+    padding-left: 65px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: #333;
+    padding-top: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.dashboard-container {
+    padding-left: 5px;
+    padding-top: 25px;
+    /* font-size: 24px; */
+    margin-right: 5px;
+}
+.dashboard-container p{
+    font-size: 24px;
+}
+.sub-menu-container {
+    width: 150px;
+}
+.sub-menu-container .fa {
+    position: absolute;
+    right: 6px;
+    top: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.header-dashboard-container {
+    background: #fafbfe;
+    width: 100%;
+}
+ul.sub-menu-list {
+    padding: 0 15px;
+    position: relative;
+    top: 75px;
+}
+ul.sub-menu-list li {
+    list-style: none;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: rubik;
+    font-weight: 400;
+    cursor: pointer;
+}
+ul.sub-menu-list li a{
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    color: #313a46;
+    font-family: rubik;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.mat-drawer {
+    color: #000;
+}
+.base-container .mat-drawer-inner-container {
+    overflow: hidden !important;
+}
+.base-container ul.sub-menu-list a:focus-visible {
+    outline: none;
+}
+.side-menu-tigger .mat-icon {
+    position: fixed;
+    top: 26px;
+    left: 85px;
+}
+.sub-menu-container .mat-icon {
+    position: absolute;
+    left: 90%;
+    transform: translateX(-90%);
+    top: 10px;
+    border: .5px dotted #3333338c;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
+    cursor: pointer;
+}
+.header-dashboard-container.login, .base-container.login {
+    background-color: #fff;
+}
+
+ul.sub-menu-list li {
+    position: relative;
+}
+ul.sub-menu-list li:after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-bottom: 2px solid #798089;
+    transition: all .3s ease-in-out;
+}
+ul.sub-menu-list li:hover:after {
+    position: absolute;
+    width: 100%;
+}
+.header-user .mat-icon, .side-menu-tigger.ng-star-inserted .mat-icon {
+    color: #fff;
+}
+li.active.ng-star-inserted {
+    border-bottom: 2px solid #ccc;
+}
